@@ -29,4 +29,9 @@ class ArticlesController < ApplicationController
       render 'edit'
     end
   end
+  def destory
+    @article = Article.find(params[:id])
+    @article.destory
+    redirect_to articles_path
+  end
 end
