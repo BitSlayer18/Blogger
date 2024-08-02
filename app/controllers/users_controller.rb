@@ -19,7 +19,6 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.save
-      binding.break
       flash[:notice] = "User details were updated succesfully"
       redirect_to articles_path
     else
