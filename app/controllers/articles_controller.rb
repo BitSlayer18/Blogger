@@ -17,7 +17,7 @@ class ArticlesController < ApplicationController
       flash[:notice] = "Article was created successfully."
       redirect_to @article
     else
-      render 'new'
+      render :new,status: :unprocessable_entity
     end
   end
   def update
@@ -25,7 +25,7 @@ class ArticlesController < ApplicationController
       flash[:notice] = "Article was updated successfully."
       redirect_to @article
     else
-      render 'edit'
+      render :edit,status: :unprocessable_entity
     end
   end
   #the earlier version was not working because i had set destroy as destory othewise they are fine and will be working
