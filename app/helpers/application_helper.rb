@@ -16,4 +16,6 @@ module ApplicationHelper
     #turning the current user into a boolean
     !!current_user
   end
+
+
 end
