@@ -9,6 +9,7 @@
 							<li class="nav-item">
 								<%= link_to "Bloggers",users_path,class: "nav-link"%>
 							</li>
+
 							<li class="nav-item dropdown">
 								<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 									Articles
@@ -22,6 +23,19 @@
 									<li><a class="dropdown-item" href="#">Something else here</a></li>
 								</ul>
 							</li>
+
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+									Categories
+								</a>
+								<ul class="dropdown-menu">
+									<% if logged_in? && current_user.admin?%>
+										<%= link_to "Create new Category",new_category_path,class: "dropdown-item"%>
+									<%end%>
+									<%= link_to "View categories",categories_path,class: "dropdown-item"%>
+								</ul>
+							</li>
+
 							<% if logged_in? %>
 								<li class="nav-item dropdown">
 									<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -33,6 +47,7 @@
 										<%= link_to "Delete your profile",user_path(current_user),class: "dropdown-item text-danger",method: :delete, data: {confirm: "Are you sure?"}%>
 									</ul>
 								</li>
+
 								<li class="nav-item">
 									<%= link_to "Logout",logout_path,class: "nav-link",method: :delete%>
 								</li>
@@ -43,6 +58,7 @@
 								<li class="nav-item">
 									<%= link_to "Sign Up",signup_path,class: "nav-link"%>
 								</li>
+
 							<%end%>
 						</ul>
 						<form class="d-flex" role="search">
